@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   check_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/27 17:31:27 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/08 03:39:41 by wportilh         ###   ########.fr       */
+/*   Created: 2022/07/08 01:06:56 by wportilh          #+#    #+#             */
+/*   Updated: 2022/07/08 03:50:11 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,27 +17,33 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-int	main(int argc, char *argv[])
+static void	input_error(char *message)
+{
+	printf("Error\n%s", message);
+	exit(EXIT_FAILURE);
+}
+
+void	check_input(int argc, char *argv)
 {
 	int		file;
 	int		key;
 	char	*partial;
-	char	*str;
 	char	**map_lines;
 
-	key = 0;
-	str = NULL;
-	check_input(argc, argv[1]);
-	file = open(argv[1], O_RDONLY);
-		while (key == 0)
-		{
-			partial = get_next_line(file);
-			if (partial == NULL)
-				key = 1;
-			if (partial != NULL)
-				str = ft_strjoin_alt(str, partial);
-		}
-		map_lines = ft_split(str, '\n');
-		read_map(map_lines);
+	printf("teste = %s\n", argv + (ft_strlen(argv) - 4));
+	if (argc == 1)
+		input_error("Missing argument *.ber file\n\n");
+	if (argc > 2)
+		input_error("Too many arguments\n\n");
+	if (ft_strncmp(argv + (ft_strlen(argv) - 4), ".ber", 5) != 0)
+		input_error("Wrong format file. Enter with a *.ber argument\n");
+	if (argc == 2)
+		file = open(argv, O_RDONLY);
+	if (file == -1)
+	{
 		close(file);
+		input_error("File error\n\n");
+	}
+	close(file);
+	// MUDAR O PRINTF POR FT_PRINTF E VER COMO FUNCIONA O EXIT
 }
