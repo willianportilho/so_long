@@ -1,30 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/22 05:11:31 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/09 00:55:14 by wportilh         ###   ########.fr       */
+/*   Created: 2022/07/09 00:44:00 by wportilh          #+#    #+#             */
+/*   Updated: 2022/07/09 00:56:54 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
-
-# include <mlx.h>
-# include <stdio.h> // TIRAR DEPOIS
-# include <math.h>
-
-void	read_map(char	**map_lines);
-void	check_input(int argc, char *argv);
-char	**get_map(char *argv);
-
-typedef struct s_mlx
+char	**check_map(char *argv)
 {
-	void			*mlx;
-	void			*win;
-}					t_mlx;
 
-#endif
+}
