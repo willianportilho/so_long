@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 05:01:18 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/08 01:26:50 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/09 02:55:04 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ void	read_map(char	**map_lines)
 	void	*hole;
 	int		i;
 	int		j;
-	int		i2;
-	int		j2;
 	int		index;
 	int		index2;
 

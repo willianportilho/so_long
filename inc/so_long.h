@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 05:11:31 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/09 00:55:14 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/09 04:03:18 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 void	read_map(char	**map_lines);
 void	check_input(int argc, char *argv);
+void	check_map(char **map_lines);
 char	**get_map(char *argv);
 
 typedef struct s_mlx
