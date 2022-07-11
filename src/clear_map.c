@@ -1,32 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   clear_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/22 05:11:31 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/11 19:05:02 by wportilh         ###   ########.fr       */
+/*   Created: 2022/07/11 18:08:29 by wportilh          #+#    #+#             */
+/*   Updated: 2022/07/11 19:06:01 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "../inc/so_long.h"
+#include "../inc/libft.h"
 
-# include <mlx.h>
-# include <stdio.h> // TIRAR DEPOIS
-# include <math.h>
-
-void	read_map(char	**map_lines);
-void	check_input(int argc, char *argv);
-void	check_map(char **all_map);
-void	clear_map(char **all_map);
-char	*get_map(char *argv);
-
-typedef struct s_mlx
+void	clear_map(char **all_map)
 {
-	void			*mlx;
-	void			*win;
-}					t_mlx;
-
-#endif
+	free (*all_map);
+}

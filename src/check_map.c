@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 00:44:00 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/09 06:08:08 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/11 19:23:07 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,8 @@ static void	map_error(char *message)
 	exit(EXIT_FAILURE);
 }
 
-static void	check_wrong_c(char *line)
+static void	check_wrong_c(char **all_map, char *allow_char)
 {
-	char	*allow_char;
 	int		i;
 	int		i2;
 	int		key;
@@ -29,27 +28,35 @@ static void	check_wrong_c(char *line)
 	i = 0;
 	i2 = 0;
 	key = 0;
-	allow_char = ft_strdup("01CEP");
-	while (line[i])
+	while ((*all_map)[i])
 	{
 		while (allow_char[i2])
 		{
-			if (line[i] == allow_char[i2++])
+			if ((*all_map)[i] == allow_char[i2++])
 				key = 1;
 		}
 		if (key == 0)
+		{
+			clear_map (all_map);
 			map_error("Map with wrong character(s)\n");
+		}
 		i++;
 		i2 = 0;
 		key = 0;
 	}
 }
 
-void	check_map(char **map_lines)
+/*static void	check_cep(char **map_lines)
 {
-	int		i;
+	char	*cep;
 
-	i = 0;
-	while (map_lines[i])
-		check_wrong_c(map_lines[i++]);
+	cep = ft_strdup("CEP");
+	
+}*/
+
+void	check_map(char **all_map)
+{
+	check_wrong_c(all_map, "01CEP\n");
+	check_cep(map_lines);
+	clear_map (all_map);
 }

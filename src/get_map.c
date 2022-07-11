@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 00:45:03 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/09 00:56:58 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/11 18:52:12 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,12 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-char	**get_map(char *argv)
+char	*get_map(char *argv)
 {
 	int		file;
 	int		key;
 	char	*partial;
 	char	*all_map;
-	char	**map_lines;
 
 	key = 0;
 	all_map = NULL;
@@ -35,8 +34,8 @@ char	**get_map(char *argv)
 			key = 1;
 		if (partial != NULL)
 			all_map = ft_strjoin_alt(all_map, partial);
+		free (partial);
 	}
-	map_lines = ft_split(all_map, '\n');
 	close(file);
-	return (map_lines);
+	return (all_map);
 }
