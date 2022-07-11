@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 05:11:31 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/11 19:05:02 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/11 20:43:08 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,13 @@ typedef struct s_mlx
 	void			*mlx;
 	void			*win;
 }					t_mlx;
+
+typedef struct s_cep
+{
+	int	i;
+	int	c;
+	int	e;
+	int	p;
+}	t_cep;
 
 #endif
