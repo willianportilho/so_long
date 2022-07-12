@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 00:44:00 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/11 22:15:44 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/12 04:39:57 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,16 +80,32 @@ static void	check_rectangle(char **all_map)
 	int		i2;
 	char	**map_lines;
 
+	map_lines = ft_split(*all_map, '\n');
 	i = 0;
+	i2 = ft_strlen(map_lines[i]);
+	while (map_lines[i])
+	{
+		if ((int)ft_strlen(map_lines[i]) != i2)
+			map_error("Wrong map format. Please, inside a rectangle map.\n");
+		if ((map_lines[i][(ft_strlen(map_lines[i]) - 1)] != '1')
+			|| (map_lines[i][0] != '1'))
+			map_error("Wrong map format. Number 1 is required around the map\n");
+		i++;
+	}
+	i--;
 	i2 = 0;
-	map_lines = ft_split(*all_map, "\n");
-	
+	while (map_lines[0][i2])
+	{
+		if ((map_lines[0][i2] != '1') || (map_lines[i][i2] != '1'))
+			map_error("Wrong map format. Number 1 is required around the map\n");
+		i2++;
+	}
 }
 
 void	check_map(char **all_map)
 {
 	check_wrong_c(all_map, "01CEP\n");
 	check_cep(all_map, "CEP");
-	//check_rectangle(all_map);
-	clear_map (all_map);
+	check_rectangle(all_map);
+	//clear_map (all_map);
 }
