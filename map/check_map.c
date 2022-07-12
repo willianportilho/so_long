@@ -6,18 +6,12 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 00:44:00 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/12 04:39:57 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/12 06:27:07 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 #include "../inc/libft.h"
-
-static void	map_error(char *message)
-{
-	printf("Error\n%s", message);
-	exit(EXIT_FAILURE);
-}
 
 static void	check_wrong_c(char **all_map, char *allow_char)
 {
@@ -36,10 +30,7 @@ static void	check_wrong_c(char **all_map, char *allow_char)
 				key = 1;
 		}
 		if (key == 0)
-		{
-			clear_map (all_map);
-			map_error("Map with wrong character(s)\n");
-		}
+			map_error("Map with wrong character(s).\n", all_map);
 		i++;
 		i2 = 0;
 		key = 0;
@@ -64,17 +55,15 @@ static void	check_cep(char **all_map, char *cep_chars)
 			cep.p++;
 		cep.i++;
 	}
-	if ((cep.c == 0) || (cep.e == 0) || (cep.p != 1))
-		clear_map (all_map);
 	if (cep.c == 0)
-		map_error("Letter 'C' not found. Inside 'C' at least one time\n");
+		map_error("Letter 'C' not found. Insert at least one.\n", all_map);
 	else if (cep.e == 0)
-		map_error("Letter 'E' not found. Inside 'E' at least one time\n");
+		map_error("Letter 'E' not found. Insert at least one.\n", all_map);
 	else if (cep.p != 1)
-		map_error("Please, inside only one letter 'P' on the map\n");
+		map_error("Insert only one letter 'P' on the map.\n", all_map);
 }
 
-static void	check_rectangle(char **all_map)
+static void	check_format_row(char **all_map)
 {
 	int		i;
 	int		i2;
@@ -86,26 +75,48 @@ static void	check_rectangle(char **all_map)
 	while (map_lines[i])
 	{
 		if ((int)ft_strlen(map_lines[i]) != i2)
-			map_error("Wrong map format. Please, inside a rectangle map.\n");
-		if ((map_lines[i][(ft_strlen(map_lines[i]) - 1)] != '1')
-			|| (map_lines[i][0] != '1'))
-			map_error("Wrong map format. Number 1 is required around the map\n");
+		{
+			clear_map(&map_lines);
+			map_error("Wrong format. Insert a rectangular map.\n", all_map);
+		}
+		if ((map_lines[i][i2 - 1] != '1') || (map_lines[i][0] != '1'))
+		{
+			clear_map(&map_lines);
+			map_error("Number 1 is required around the map.\n", all_map);
+		}
 		i++;
 	}
-	i--;
+	clear_map(&map_lines);
+}
+
+static void	check_format_col(char **all_map)
+{
+	int		i;
+	int		i2;
+	char	**map_lines;
+
+	map_lines = ft_split(*all_map, '\n');
+	i = 0;
 	i2 = 0;
+	while (map_lines[i])
+		i++;
 	while (map_lines[0][i2])
 	{
-		if ((map_lines[0][i2] != '1') || (map_lines[i][i2] != '1'))
-			map_error("Wrong map format. Number 1 is required around the map\n");
+		if ((map_lines[0][i2] != '1') || (map_lines[i - 1][i2] != '1'))
+		{
+			clear_map(&map_lines);
+			map_error("Number 1 is required around the map.\n", all_map);
+		}
 		i2++;
 	}
+	clear_map(&map_lines);
 }
 
 void	check_map(char **all_map)
 {
 	check_wrong_c(all_map, "01CEP\n");
 	check_cep(all_map, "CEP");
-	check_rectangle(all_map);
-	//clear_map (all_map);
+	check_format_row(all_map);
+	check_format_col(all_map);
+	map_error("Deu tudo certo até aqui, graças a Deus!\n", all_map);
 }
