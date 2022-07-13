@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 00:44:00 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/12 06:27:07 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/12 20:44:01 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,5 +118,4 @@ void	check_map(char **all_map)
 	check_cep(all_map, "CEP");
 	check_format_row(all_map);
 	check_format_col(all_map);
-	map_error("Deu tudo certo até aqui, graças a Deus!\n", all_map);
 }
