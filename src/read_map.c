@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 05:01:18 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/13 05:28:32 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/14 21:39:36 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	handle_input(int keysym, t_mlx *init)
 
 int	handle_keyrelease(int keysym, void *data)
 {
-	printf("Keyrelease: %c\n", keysym);
+	ft_printf("Keyrelease: %c\n", keysym);
 	return (0);
 }
 

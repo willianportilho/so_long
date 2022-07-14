@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 05:11:31 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/13 05:30:37 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/14 21:38:30 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define SO_LONG_H
 
 # include <mlx.h>
-# include <stdio.h> // TIRAR DEPOIS
 # include <math.h>
 # include <X11/X.h>
 

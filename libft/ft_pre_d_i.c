@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_error.c                                        :+:      :+:    :+:   */
+/*   ft_pre_d_i.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/12 05:26:04 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/12 06:35:27 by wportilh         ###   ########.fr       */
+/*   Created: 2022/05/27 23:01:53 by wportilh          #+#    #+#             */
+/*   Updated: 2022/07/13 19:56:16 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/so_long.h"
 #include "../inc/libft.h"
 
-void	map_error(char *message, char **all_map)
+void	ft_pre_d_i(int n, int *i, int *len)
 {
-	printf("Error\n%s", message);
-	free (*all_map);
-	exit(EXIT_FAILURE);
+	int	cp;
 
-	// MUDAR O PRINTF POR FT_PRINTF E VER COMO FUNCIONA O EXIT
+	cp = n;
+	if (cp < 0)
+		*len = *len + 1;
+	*len = *len + 1;
+	while ((cp > 9) || (cp < -9))
+	{
+		cp = cp / 10;
+		*len = *len + 1;
+	}
+	*i = *i + 2;
+	ft_print_d_i(n);
 }
