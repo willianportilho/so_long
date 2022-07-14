@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 05:01:18 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/14 22:13:32 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/14 22:43:47 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@
 int	handle_input(int keysym, t_mlx *init)
 {
 	if (keysym == KEY_ESCAPE)
+	{
+		mlx_loop_end(init->mlx);
 		mlx_destroy_window(init->mlx, init->win);
+	}
 	return (0);
 }
 
@@ -32,8 +35,9 @@ int	close_game(t_mlx *init)
 	return (0);
 }
 
-int	handle_no_event(void *init)
+int	reprint(t_mlx *init)
 {
+	insert_map(init);
 	return (0);
 }
 
@@ -52,13 +56,13 @@ void	read_map(char	**all_map)
 		free (init.win);
 		return ;
 	}
+	insert_name(&init);
 	insert_map(&init);
-	mlx_loop_hook(init.mlx, &handle_no_event, &init);
+	//mlx_loop_hook(init.mlx, &reprint, &init);
 	mlx_hook(init.win, KeyPress, KeyPressMask, &handle_input, &init);
 	mlx_hook(init.win, DestroyNotify, NoEventMask, &close_game, &init);
 	mlx_loop(init.mlx);
 	mlx_destroy_image(init.mlx, init.wall);
-	mlx_destroy_image(init.mlx, init.hero);
 	mlx_destroy_display(init.mlx);
 	free (init.mlx);
 	while (init.map_lines[init.count])
