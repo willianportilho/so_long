@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 05:01:18 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/14 22:43:47 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/14 22:57:48 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,31 +41,29 @@ int	reprint(t_mlx *init)
 	return (0);
 }
 
-void	read_map(char	**all_map)
+void	read_map(t_mlx *init)
 {
-	t_mlx	init;
-
-	init.count = 0;
-	init.map_lines = ft_split(*all_map, '\n');
-	init.mlx = mlx_init();
-	if(init.mlx == NULL)
+	init->count = 0;
+	init->map_lines = ft_split(init->all_map, '\n');
+	init->mlx = mlx_init();
+	if(init->mlx == NULL)
 		return ;
-	init.win = mlx_new_window(init.mlx, 500, 500, "so_long");
-	if(init.win == NULL)
+	init->win = mlx_new_window(init->mlx, 500, 500, "so_long");
+	if(init->win == NULL)
 	{
-		free (init.win);
+		free (init->win);
 		return ;
 	}
-	insert_name(&init);
-	insert_map(&init);
+	insert_name(init);
+	insert_map(init);
 	//mlx_loop_hook(init.mlx, &reprint, &init);
-	mlx_hook(init.win, KeyPress, KeyPressMask, &handle_input, &init);
-	mlx_hook(init.win, DestroyNotify, NoEventMask, &close_game, &init);
-	mlx_loop(init.mlx);
-	mlx_destroy_image(init.mlx, init.wall);
-	mlx_destroy_display(init.mlx);
-	free (init.mlx);
-	while (init.map_lines[init.count])
-		free(init.map_lines[init.count++]);
-	free(init.map_lines);
+	mlx_hook(init->win, KeyPress, KeyPressMask, &handle_input, init);
+	mlx_hook(init->win, DestroyNotify, NoEventMask, &close_game, init);
+	mlx_loop(init->mlx);
+	mlx_destroy_image(init->mlx, init->wall);
+	mlx_destroy_display(init->mlx);
+	free (init->mlx);
+	while (init->map_lines[init->count])
+		free(init->map_lines[init->count++]);
+	free(init->map_lines);
 }
