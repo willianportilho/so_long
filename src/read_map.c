@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 05:01:18 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/14 21:39:36 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/14 22:13:32 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,12 @@ int	handle_no_event(void *init)
 	return (0);
 }
 
-void	read_map(char	**map_lines)
+void	read_map(char	**all_map)
 {
 	t_mlx	init;
 
+	init.count = 0;
+	init.map_lines = ft_split(*all_map, '\n');
 	init.mlx = mlx_init();
 	if(init.mlx == NULL)
 		return ;
@@ -59,4 +61,7 @@ void	read_map(char	**map_lines)
 	mlx_destroy_image(init.mlx, init.hero);
 	mlx_destroy_display(init.mlx);
 	free (init.mlx);
+	while (init.map_lines[init.count])
+		free(init.map_lines[init.count++]);
+	free(init.map_lines);
 }

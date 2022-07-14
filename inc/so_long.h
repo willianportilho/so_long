@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 05:11:31 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/14 21:38:30 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/14 22:11:37 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ typedef struct s_mlx
 	void	*hero;
 	int		i;
 	int		j;
+	int		count;
+	char	**map_lines;
 }			t_mlx;
 
 typedef struct s_cep
