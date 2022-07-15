@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 01:06:56 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/14 21:38:48 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/15 23:23:56 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,4 @@ void	check_input(int argc, char *argv)
 		input_error("File error\n");
 	}
 	close(file);
-	// MUDAR O PRINTF POR FT_PRINTF E VER COMO FUNCIONA O EXIT
 }

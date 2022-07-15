@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 05:14:36 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/15 19:16:45 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/15 23:51:41 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,29 @@
 
 void	start_map(t_mlx *init)
 {
-	int	i;
-	int	i2;
-
-	i = 0;
-	i2 = 0;
-	while (init->map_lines[i])
+	while (init->map_lines[init->count])
 	{
-		while (init->map_lines[i][i2])
+		while (init->map_lines[init->count][init->count2])
 		{
-			if (init->map_lines[i][i2] == '1')
-				mlx_put_image_to_window(init->mlx, init->win, init->wall, (i2 * 50), (i * 50));
-			else if (init->map_lines[i][i2] == '0')
-				mlx_put_image_to_window(init->mlx, init->win, init->ground, (i2 * 50), (i * 50));
-			else if (init->map_lines[i][i2] == 'P')
-				mlx_put_image_to_window(init->mlx, init->win, init->hero, (i2 * 50), (i * 50));
-			else if (init->map_lines[i][i2] == 'C')
-				mlx_put_image_to_window(init->mlx, init->win, init->coin, (i2 * 50), (i * 50));
-			else if (init->map_lines[i][i2] == 'E')
-				mlx_put_image_to_window(init->mlx, init->win, init->hole, (i2 * 50), (i * 50));
-			i2++;
+			if (init->map_lines[init->count][init->count2] == '1')
+				mlx_put_image_to_window(init->mlx, init->win, \
+				init->wall, (init->count2 * 50), (init->count * 50));
+			else if (init->map_lines[init->count][init->count2] == '0')
+				mlx_put_image_to_window(init->mlx, init->win, \
+				init->ground, (init->count2 * 50), (init->count * 50));
+			else if (init->map_lines[init->count][init->count2] == 'P')
+				mlx_put_image_to_window(init->mlx, init->win, \
+				init->hero, (init->count2 * 50), (init->count * 50));
+			else if (init->map_lines[init->count][init->count2] == 'C')
+				mlx_put_image_to_window(init->mlx, init->win, \
+				init->coin, (init->count2 * 50), (init->count * 50));
+			else if (init->map_lines[init->count][init->count2] == 'E')
+				mlx_put_image_to_window(init->mlx, init->win, \
+				init->hole, (init->count2 * 50), (init->count * 50));
+			init->count2++;
 		}
-		i++;
-		i2 = 0;
+		init->count++;
+		init->count2 = 0;
 	}
+	init->count = 0;
 }

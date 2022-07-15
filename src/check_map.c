@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 00:44:00 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/15 22:04:37 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/15 23:39:05 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,8 @@ static void	check_format_row(t_mlx *init)
 	{
 		if ((int)ft_strlen(init->map_lines[i]) != i2)
 			map_error("Wrong format. Insert a rectangular map.\n", init);
-		if ((init->map_lines[i][i2 - 1] != '1') || (init->map_lines[i][0] != '1'))
+		if ((init->map_lines[i][i2 - 1] != '1')
+		|| (init->map_lines[i][0] != '1'))
 			map_error("Number 1 is required around the map.\n", init);
 		i++;
 	}
@@ -88,13 +89,20 @@ static void	check_format_col(t_mlx *init)
 
 	i = 0;
 	i2 = 0;
+	init->rows = 0;
+	init->cols = 0;
 	while (init->map_lines[i])
+	{
 		i++;
+		init->rows++;
+	}
 	while (init->map_lines[0][i2])
 	{
-		if ((init->map_lines[0][i2] != '1') || (init->map_lines[i - 1][i2] != '1'))
+		if ((init->map_lines[0][i2] != '1')
+		|| (init->map_lines[i - 1][i2] != '1'))
 			map_error("Number 1 is required around the map.\n", init);
 		i2++;
+		init->cols++;
 	}
 	clear_map(init);
 }
@@ -110,7 +118,7 @@ void	check_map(t_mlx *init)
 	while (init->all_map[i])
 	{
 		if (init->all_map[i] == '\n' && init->all_map[i + 1] == '\n')
-		map_error("Empty line(s) in file.\n", init);
+			map_error("Empty line(s) in file.\n", init);
 		i++;
 	}
 	if (init->all_map[i - 1] == '\n')
