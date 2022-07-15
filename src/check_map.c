@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 00:44:00 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/14 22:54:50 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/15 05:45:00 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,53 +67,62 @@ static void	check_format_row(t_mlx *init)
 {
 	int		i;
 	int		i2;
-	char	**map_lines;
 
-	map_lines = ft_split(init->all_map, '\n');
 	i = 0;
-	i2 = ft_strlen(map_lines[i]);
-	while (map_lines[i])
+	i2 = ft_strlen(init->map_lines[i]);
+	while (init->map_lines[i])
 	{
-		if ((int)ft_strlen(map_lines[i]) != i2)
+		if ((int)ft_strlen(init->map_lines[i]) != i2)
 		{
-			clear_map(&map_lines);
+			clear_map(init);
 			map_error("Wrong format. Insert a rectangular map.\n", init);
 		}
-		if ((map_lines[i][i2 - 1] != '1') || (map_lines[i][0] != '1'))
+		if ((init->map_lines[i][i2 - 1] != '1') || (init->map_lines[i][0] != '1'))
 		{
-			clear_map(&map_lines);
+			clear_map(init);
 			map_error("Number 1 is required around the map.\n", init);
 		}
 		i++;
 	}
-	clear_map(&map_lines);
+	clear_map(init);
 }
 
 static void	check_format_col(t_mlx *init)
 {
 	int		i;
 	int		i2;
-	char	**map_lines;
 
-	map_lines = ft_split(init->all_map, '\n');
 	i = 0;
 	i2 = 0;
-	while (map_lines[i])
+	while (init->map_lines[i])
 		i++;
-	while (map_lines[0][i2])
+	while (init->map_lines[0][i2])
 	{
-		if ((map_lines[0][i2] != '1') || (map_lines[i - 1][i2] != '1'))
+		if ((init->map_lines[0][i2] != '1') || (init->map_lines[i - 1][i2] != '1'))
 		{
-			clear_map(&map_lines);
+			clear_map(init);
 			map_error("Number 1 is required around the map.\n", init);
 		}
 		i2++;
 	}
-	clear_map(&map_lines);
+	clear_map(init);
 }
 
 void	check_map(t_mlx *init)
 {
+	int	i;
+
+	i = 0;
+	if (init->all_map[0] == '\n')
+		map_error("Empty line in the first (or more) line(s).\n", init);
+	while (init->all_map[i])
+	{
+		if (init->all_map[i] == '\n' && init->all_map[i + 1] == '\n')
+		map_error("Empty line(s) in file.\n", init);
+		i++;
+	}
+	if (init->all_map[i - 1] == '\n')
+		map_error("Empty line in the last (or more) line(s).\n", init);
 	check_wrong_c(init, "01CEP\n");
 	check_cep(init, "CEP");
 	check_format_row(init);

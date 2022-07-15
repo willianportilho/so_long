@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 05:01:18 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/15 05:03:06 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/15 05:38:28 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ int	no_event(t_mlx *init)
 void	read_map(t_mlx *init)
 {
 	init->count = 0;
-	init->map_lines = ft_split(init->all_map, '\n');
 	init->mlx = mlx_init();
 	if(init->mlx == NULL)
 		return ;

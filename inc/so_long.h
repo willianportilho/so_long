@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 05:11:31 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/15 05:05:49 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/15 05:41:05 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,9 @@ void	insert_map(t_mlx *init);
 void	insert_name(t_mlx *init);
 void	check_input(int argc, char *argv);
 void	check_map(t_mlx *init);
-void	clear_map(char ***map_lines);
+void	clear_map(t_mlx *init);
 void	get_map(t_mlx *init, char *argv);
 void	map_error(char *message, t_mlx *init);
+void	init_vars(t_mlx *init);
 
 #endif

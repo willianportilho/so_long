@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 00:45:03 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/15 04:14:53 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/15 05:33:22 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,6 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
-
-static void	check_bl(t_mlx *init)
-{
-	int	i;
-
-	i = 0;
-	if (init->all_map[0] == '\n')
-		map_error("Empty line in the first (or more) line(s).\n", init);
-	while (init->all_map[i])
-	{
-		if (init->all_map[i] == '\n' && init->all_map[i + 1] == '\n')
-		map_error("Empty line(s) in file.\n", init);
-		i++;
-	}
-	if (init->all_map[i - 1] == '\n')
-		map_error("Empty line in the last (or more) line(s).\n", init);
-}
 
 void	get_map(t_mlx *init, char *argv)
 {
@@ -53,5 +36,4 @@ void	get_map(t_mlx *init, char *argv)
 		free (partial);
 	}
 	close(file);
-	check_bl(init);
 }
