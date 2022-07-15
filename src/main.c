@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 17:31:27 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/14 22:47:57 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/15 05:08:18 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int	main(int argc, char *argv[])
 	t_mlx	init;
 
 	check_input(argc, argv[1]);
-	init.all_map = get_map(argv[1]);
+	get_map(&init, argv[1]);
 	check_map(&init);
+	//init_vars(&init);
 	read_map(&init);
-	map_error("Deu tudo certo até aqui, graças a Deus!\n", &init);
 }

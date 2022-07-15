@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 05:11:31 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/14 22:51:05 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/15 05:05:49 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ typedef struct s_mlx
 	void	*mlx;
 	void	*win;
 	void	*wall;
+	void	*hole;
+	void	*coin;
+	void	*ground;
 	void	*hero;
 	int		i;
 	int		j;
@@ -50,7 +53,7 @@ void	insert_name(t_mlx *init);
 void	check_input(int argc, char *argv);
 void	check_map(t_mlx *init);
 void	clear_map(char ***map_lines);
-char	*get_map(char *argv);
+void	get_map(t_mlx *init, char *argv);
 void	map_error(char *message, t_mlx *init);
 
 #endif

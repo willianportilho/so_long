@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 05:01:18 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/14 22:57:48 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/15 05:03:06 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,18 @@ int	handle_input(int keysym, t_mlx *init)
 {
 	if (keysym == KEY_ESCAPE)
 	{
-		mlx_loop_end(init->mlx);
+		mlx_destroy_image(init->mlx, init->wall);
+		mlx_destroy_image(init->mlx, init->coin);
+		mlx_destroy_image(init->mlx, init->ground);
+		mlx_destroy_image(init->mlx, init->hole);
+		mlx_destroy_image(init->mlx, init->hero);
+		while (init->map_lines[init->count])
+			free(init->map_lines[init->count++]);
+		free(init->map_lines);
+		mlx_destroy_display(init->mlx);
+		free (init->mlx);
 		mlx_destroy_window(init->mlx, init->win);
+		map_error("Deu tudo certo até aqui, graças a Deus!\n", init);
 	}
 	return (0);
 }
@@ -41,6 +51,11 @@ int	reprint(t_mlx *init)
 	return (0);
 }
 
+int	no_event(t_mlx *init)
+{
+	return (0);
+}
+
 void	read_map(t_mlx *init)
 {
 	init->count = 0;
@@ -56,14 +71,11 @@ void	read_map(t_mlx *init)
 	}
 	insert_name(init);
 	insert_map(init);
-	//mlx_loop_hook(init.mlx, &reprint, &init);
+	//mlx_loop_hook(init->mlx, &reprint, &init);
+	//mlx_loop_hook(init->mlx, &no_event, &init);
+	mlx_hook(init->win, Expose, ExposureMask, reprint, init);
 	mlx_hook(init->win, KeyPress, KeyPressMask, &handle_input, init);
 	mlx_hook(init->win, DestroyNotify, NoEventMask, &close_game, init);
 	mlx_loop(init->mlx);
-	mlx_destroy_image(init->mlx, init->wall);
-	mlx_destroy_display(init->mlx);
-	free (init->mlx);
-	while (init->map_lines[init->count])
-		free(init->map_lines[init->count++]);
-	free(init->map_lines);
+
 }
