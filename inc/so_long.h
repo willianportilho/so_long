@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 05:11:31 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/15 05:41:05 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/15 20:57:23 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ typedef struct s_mlx
 	void	*hero;
 	int		i;
 	int		j;
-	int		count;
 	char	*all_map;
 	char	**map_lines;
 }			t_mlx;
@@ -47,14 +46,17 @@ typedef struct s_cep
 	int	p;
 }	t_cep;
 
-void	read_map(t_mlx *init);
-void	insert_map(t_mlx *init);
-void	insert_name(t_mlx *init);
+void	start_map(t_mlx *init);
 void	check_input(int argc, char *argv);
 void	check_map(t_mlx *init);
 void	clear_map(t_mlx *init);
+void	clear_xpms(t_mlx *init);
 void	get_map(t_mlx *init, char *argv);
 void	map_error(char *message, t_mlx *init);
 void	init_vars(t_mlx *init);
+int		reprint(t_mlx *init);
+int		close_game(t_mlx *init);
+//int		handle_keyrelease(int keysym, void *data);
+int		handle_input(int keysym, t_mlx *init);
 
 #endif

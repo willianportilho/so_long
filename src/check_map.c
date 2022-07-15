@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 00:44:00 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/15 05:45:00 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/15 22:04:37 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static void	check_cep(t_mlx *init, char *cep_chars)
 	else if (cep.e == 0)
 		map_error("Letter 'E' not found. Insert at least one.\n", init);
 	else if (cep.p != 1)
-		map_error("Insert only one letter 'P' on the map.\n", init);
+		map_error("Insert one (only) letter 'P' on the map.\n", init);
 }
 
 static void	check_format_row(t_mlx *init)
@@ -73,15 +73,9 @@ static void	check_format_row(t_mlx *init)
 	while (init->map_lines[i])
 	{
 		if ((int)ft_strlen(init->map_lines[i]) != i2)
-		{
-			clear_map(init);
 			map_error("Wrong format. Insert a rectangular map.\n", init);
-		}
 		if ((init->map_lines[i][i2 - 1] != '1') || (init->map_lines[i][0] != '1'))
-		{
-			clear_map(init);
 			map_error("Number 1 is required around the map.\n", init);
-		}
 		i++;
 	}
 	clear_map(init);
@@ -99,10 +93,7 @@ static void	check_format_col(t_mlx *init)
 	while (init->map_lines[0][i2])
 	{
 		if ((init->map_lines[0][i2] != '1') || (init->map_lines[i - 1][i2] != '1'))
-		{
-			clear_map(init);
 			map_error("Number 1 is required around the map.\n", init);
-		}
 		i2++;
 	}
 	clear_map(init);
@@ -113,6 +104,7 @@ void	check_map(t_mlx *init)
 	int	i;
 
 	i = 0;
+	init->map_lines = ft_split(init->all_map, '\n');
 	if (init->all_map[0] == '\n')
 		map_error("Empty line in the first (or more) line(s).\n", init);
 	while (init->all_map[i])

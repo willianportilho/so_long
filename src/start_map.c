@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   insert_map.c                                       :+:      :+:    :+:   */
+/*   start_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 05:14:36 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/15 05:04:02 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/15 19:16:45 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 #include "../inc/libft.h"
 
-void	insert_name(t_mlx *init)
-{
-	init->wall = mlx_xpm_file_to_image(init->mlx, "./img/wall.xpm", &init->i, &init->j);
-	init->coin = mlx_xpm_file_to_image(init->mlx, "./img/coin.xpm", &init->i, &init->j);
-	init->hole = mlx_xpm_file_to_image(init->mlx, "./img/hole.xpm", &init->i, &init->j);
-	init->hero = mlx_xpm_file_to_image(init->mlx, "./img/hero.xpm", &init->i, &init->j);
-	init->ground = mlx_xpm_file_to_image(init->mlx, "./img/ground.xpm", &init->i, &init->j);
-}
-
-void	insert_map(t_mlx *init)
+void	start_map(t_mlx *init)
 {
 	int	i;
 	int	i2;

@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 17:31:27 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/15 05:37:29 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/15 20:58:32 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,11 @@ int	main(int argc, char *argv[])
 
 	check_input(argc, argv[1]);
 	get_map(&init, argv[1]);
-	init_vars(&init);
 	check_map(&init);
-	read_map(&init);
+	init_vars(&init);
+	start_map(&init);
+	mlx_hook(init.win, Expose, ExposureMask, &reprint, &init);
+	mlx_hook(init.win, KeyPress, KeyPressMask, &handle_input, &init);
+	mlx_hook(init.win, DestroyNotify, NoEventMask, &close_game, &init);
+	mlx_loop(init.mlx);
 }
