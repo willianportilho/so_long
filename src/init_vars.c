@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 05:29:49 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/15 23:33:35 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/16 00:48:57 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ static void	start_mlx(t_mlx *init)
 	init->mlx = mlx_init();
 	if (init->mlx == NULL)
 		return ;
-	init->win = mlx_new_window(init->mlx, init->cols * 50, \
-	init->rows * 50, "so_long");
+	init->win = mlx_new_window(init->mlx, init->rows * 50, \
+	init->cols * 50, "so_long");
 	if (init->win == NULL)
 	{
 		free (init->win);

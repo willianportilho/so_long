@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 19:25:54 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/15 20:24:20 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/16 00:28:34 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ int	close_game(t_mlx *init)
 {
 	clear_xpms(init);
 	clear_map(init);
+	mlx_destroy_window(init->mlx, init->win);
 	mlx_destroy_display(init->mlx);
 	free (init->all_map);
 	free (init->mlx);
-	mlx_destroy_window(init->mlx, init->win);
 	ft_printf("You left the game!\n", init);
 	exit(EXIT_SUCCESS);
 }
