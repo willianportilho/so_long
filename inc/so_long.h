@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 05:11:31 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/16 01:14:16 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/16 04:09:41 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_mlx
 	void	*coin;
 	void	*ground;
 	void	*hero;
+	void	*sprite;
 	int		i;
 	int		j;
 	int		cols;
@@ -63,6 +64,7 @@ void	init_vars(t_mlx *init);
 int		reprint(t_mlx *init);
 int		close_game(t_mlx *init);
 void	found_p(t_mlx *init);
+void	change_map(char c, t_mlx *init);
 //int		handle_keyrelease(int keysym, void *data);
 int		handle_input(int keysym, t_mlx *init);
 

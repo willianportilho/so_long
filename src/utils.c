@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 19:25:54 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/16 01:34:05 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/16 04:17:21 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,28 +17,16 @@ int	handle_input(int keysym, t_mlx *init)
 {
 	if (keysym == KEY_ESCAPE)
 		close_game(init);
-	else if (keysym == KEY_ABNT_S)
-	{
-		init->map_lines[init->yp][init->xp] = '0';
-		init->map_lines[(init->yp + 1)][init->xp] = 'P';
-	}
 	else if (keysym == KEY_ABNT_W)
-	{
-		init->map_lines[init->yp][init->xp] = '0';
-		init->map_lines[(init->yp - 1)][init->xp] = 'P';
-	}
+		change_map('U', init);
+	else if (keysym == KEY_ABNT_S)
+		change_map('D', init);
 	else if (keysym == KEY_ABNT_A)
-	{
-		init->map_lines[init->yp][init->xp] = '0';
-		init->map_lines[(init->yp)][init->xp - 1] = 'P';
-	}
+		change_map('L', init);
 	else if (keysym == KEY_ABNT_D)
-	{
-		init->map_lines[init->yp][init->xp] = '0';
-		init->map_lines[(init->yp)][init->xp + 1] = 'P';
-	}
+		change_map('R', init);
 	start_map(init);
-	return (1);
+	return (0);
 }
 
 int	handle_keyrelease(int keysym, void *data)
@@ -74,7 +62,6 @@ void	found_p(t_mlx *init)
 	i2 = 0;
 	init->xp = 0;
 	init->yp = 0;
-
 	while (init->map_lines[i])
 	{
 		while (init->map_lines[i][i2])

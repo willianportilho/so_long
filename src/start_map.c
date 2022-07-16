@@ -6,12 +6,18 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 05:14:36 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/16 03:42:05 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/16 03:57:02 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 #include "../inc/libft.h"
+
+static void	put_sprite(t_mlx *init)
+{
+	mlx_put_image_to_window(init->mlx, init->win, \
+	init->sprite, (init->count2 * 50), (init->count * 50));
+}
 
 void	start_map(t_mlx *init)
 {
@@ -20,20 +26,16 @@ void	start_map(t_mlx *init)
 		while (init->map_lines[init->count][init->count2])
 		{
 			if (init->map_lines[init->count][init->count2] == '1')
-				mlx_put_image_to_window(init->mlx, init->win, \
-				init->wall, (init->count2 * 50), (init->count * 50));
+				init->sprite = init->wall;
 			else if (init->map_lines[init->count][init->count2] == '0')
-				mlx_put_image_to_window(init->mlx, init->win, \
-				init->ground, (init->count2 * 50), (init->count * 50));
+				init->sprite = init->ground;
 			else if (init->map_lines[init->count][init->count2] == 'P')
-				mlx_put_image_to_window(init->mlx, init->win, \
-				init->hero, (init->count2 * 50), (init->count * 50));
+				init->sprite = init->hero;
 			else if (init->map_lines[init->count][init->count2] == 'C')
-				mlx_put_image_to_window(init->mlx, init->win, \
-				init->coin, (init->count2 * 50), (init->count * 50));
+				init->sprite = init->coin;
 			else if (init->map_lines[init->count][init->count2] == 'E')
-				mlx_put_image_to_window(init->mlx, init->win, \
-				init->hole, (init->count2 * 50), (init->count * 50));
+				init->sprite = init->hole;
+			put_sprite(init);
 			init->count2++;
 		}
 		init->count++;
