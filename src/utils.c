@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 19:25:54 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/16 04:17:21 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/16 05:11:11 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,25 @@ int	handle_input(int keysym, t_mlx *init)
 	if (keysym == KEY_ESCAPE)
 		close_game(init);
 	else if (keysym == KEY_ABNT_W)
-		change_map('U', init);
+	{
+		if (init->map_lines[init->yp - 1][init->xp] != '1')
+			change_map('U', init);
+	}
 	else if (keysym == KEY_ABNT_S)
-		change_map('D', init);
+	{
+		if (init->map_lines[init->yp + 1][init->xp] != '1')
+			change_map('D', init);
+	}
 	else if (keysym == KEY_ABNT_A)
-		change_map('L', init);
+	{
+		if (init->map_lines[init->yp][init->xp - 1] != '1')
+			change_map('L', init);
+	}
 	else if (keysym == KEY_ABNT_D)
-		change_map('R', init);
+	{
+		if (init->map_lines[init->yp][init->xp + 1] != '1')
+			change_map('R', init);
+	}
 	start_map(init);
 	return (0);
 }
@@ -53,7 +65,7 @@ int	reprint(t_mlx *init)
 	return (0);
 }
 
-void	found_p(t_mlx *init)
+void	update_map(t_mlx *init)
 {
 	int	i;
 	int	i2;
@@ -71,6 +83,8 @@ void	found_p(t_mlx *init)
 				init->xp = i2;
 				init->yp = i;
 			}
+			if (init->map_lines[i][i2] == 'C')
+				init->n_coins++;
 			i2++;
 		}
 		i++;
