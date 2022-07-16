@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 05:11:31 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/15 23:34:01 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/16 01:14:16 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # include <X11/X.h>
 
 # define KEY_ESCAPE	(0xff1b)
-# define KEY_ABNT_A	(0x61)
 # define KEY_ABNT_W	(0x77)
+# define KEY_ABNT_A	(0x61)
 # define KEY_ABNT_S	(0x73)
 # define KEY_ABNT_D	(0x64)
 
@@ -36,6 +36,8 @@ typedef struct s_mlx
 	int		j;
 	int		cols;
 	int		rows;
+	int		xp;
+	int		yp;
 	int		count;
 	int		count2;
 	char	*all_map;
@@ -60,6 +62,7 @@ void	map_error(char *message, t_mlx *init);
 void	init_vars(t_mlx *init);
 int		reprint(t_mlx *init);
 int		close_game(t_mlx *init);
+void	found_p(t_mlx *init);
 //int		handle_keyrelease(int keysym, void *data);
 int		handle_input(int keysym, t_mlx *init);
 

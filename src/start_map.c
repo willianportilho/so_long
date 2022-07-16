@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 05:14:36 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/15 23:51:41 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/16 03:42:05 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,5 @@ void	start_map(t_mlx *init)
 		init->count2 = 0;
 	}
 	init->count = 0;
+	found_p(init);
 }
