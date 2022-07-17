@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 19:25:54 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/17 21:07:03 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/17 22:07:37 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,28 +17,25 @@ int	handle_input(int keysym, t_mlx *init)
 {
 	if (keysym == KEY_ESCAPE)
 		close_game("You left the game!", init);
-	if (init->key_game == 0)
+	else if ((keysym == KEY_ABNT_W) && (init->key_game == 0))
 	{
-		if (keysym == KEY_ABNT_W)
-		{
-			if (init->map_lines[init->yp - 1][init->xp] != '1')
-				change_map('U', init);
-		}
-		else if (keysym == KEY_ABNT_S)
-		{
-			if (init->map_lines[init->yp + 1][init->xp] != '1')
-				change_map('D', init);
-		}
-		else if (keysym == KEY_ABNT_A)
-		{
-			if (init->map_lines[init->yp][init->xp - 1] != '1')
-				change_map('L', init);
-		}
-		else if (keysym == KEY_ABNT_D)
-		{
-			if (init->map_lines[init->yp][init->xp + 1] != '1')
-				change_map('R', init);
-		}
+		if (init->map_lines[init->yp - 1][init->xp] != '1')
+			change_map('U', init);
+	}
+	else if ((keysym == KEY_ABNT_S) && (init->key_game == 0))
+	{
+		if (init->map_lines[init->yp + 1][init->xp] != '1')
+			change_map('D', init);
+	}
+	else if ((keysym == KEY_ABNT_A) && (init->key_game == 0))
+	{
+		if (init->map_lines[init->yp][init->xp - 1] != '1')
+			change_map('L', init);
+	}
+	else if ((keysym == KEY_ABNT_D) && (init->key_game == 0))
+	{
+		if (init->map_lines[init->yp][init->xp + 1] != '1')
+			change_map('R', init);
 	}
 	start_map(init);
 	return (0);
@@ -47,7 +44,7 @@ int	handle_input(int keysym, t_mlx *init)
 int	before_close(t_mlx *init)
 {
 	close_game("You left the game!", init);
-	return(1);
+	return (1);
 }
 
 int	close_game(char *message, t_mlx *init)

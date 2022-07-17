@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 05:11:31 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/17 21:02:05 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/17 22:52:15 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,15 +53,8 @@ typedef struct s_mlx
 	char	**map_lines;
 }			t_mlx;
 
-typedef struct s_cep
-{
-	int	i;
-	int	c;
-	int	e;
-	int	p;
-}	t_cep;
-
 void	start_map(t_mlx *init);
+void	input_error(char *message);
 void	check_input(int argc, char *argv);
 void	check_map(t_mlx *init);
 void	clear_map(t_mlx *init);

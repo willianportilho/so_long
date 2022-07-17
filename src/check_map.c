@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 00:44:00 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/16 03:57:37 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/17 22:51:51 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,27 +39,30 @@ static void	check_wrong_c(t_mlx *init, char *allow_char)
 
 static void	check_cep(t_mlx *init, char *cep_chars)
 {
-	t_cep	cep;
+	int	i;
+	int	c;
+	int	e;
+	int	p;
 
-	cep.i = 0;
-	cep.c = 0;
-	cep.e = 0;
-	cep.p = 0;
-	while (init->all_map[cep.i])
+	i = 0;
+	c = 0;
+	e = 0;
+	p = 0;
+	while (init->all_map[i])
 	{
-		if (init->all_map[cep.i] == cep_chars[0])
-			cep.c++;
-		if (init->all_map[cep.i] == cep_chars[1])
-			cep.e++;
-		if (init->all_map[cep.i] == cep_chars[2])
-			cep.p++;
-		cep.i++;
+		if (init->all_map[i] == cep_chars[0])
+			c++;
+		if (init->all_map[i] == cep_chars[1])
+			e++;
+		if (init->all_map[i] == cep_chars[2])
+			p++;
+		i++;
 	}
-	if (cep.c == 0)
+	if (c == 0)
 		map_error("Letter 'C' not found. Insert at least one.\n", init);
-	else if (cep.e == 0)
+	else if (e == 0)
 		map_error("Letter 'E' not found. Insert at least one.\n", init);
-	else if (cep.p != 1)
+	else if (p != 1)
 		map_error("Insert one (only) letter 'P' on the map.\n", init);
 }
 
@@ -106,7 +109,10 @@ void	check_map(t_mlx *init)
 	int	i;
 
 	i = 0;
-	init->map_lines = ft_split(init->all_map, '\n');
+	if (init->all_map)
+		init->map_lines = ft_split(init->all_map, '\n');
+	else
+		input_error("Empty file.");
 	if (init->all_map[0] == '\n')
 		map_error("Empty line in the first (or more) line(s).\n", init);
 	while (init->all_map[i])

@@ -6,14 +6,14 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 04:09:25 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/17 21:09:34 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/17 22:10:44 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 #include "../inc/libft.h"
 
-static int	check_not_yet(char c, t_mlx *init)
+static void	check_not_yet(char c, t_mlx *init)
 {
 	int	check;
 
@@ -35,7 +35,7 @@ static int	check_not_yet(char c, t_mlx *init)
 	}
 }
 
-static int	check_exit(char c, t_mlx *init)
+static void	check_exit(char c, t_mlx *init)
 {
 	int	check;
 
@@ -52,7 +52,8 @@ static int	check_exit(char c, t_mlx *init)
 	{
 		init->key_game = 1;
 		init->map_lines[init->yp][init->xp] = init->sprite_curr;
-		init->map_lines[init->yp + init->yp2][init->xp + init->xp2] = init->sprite_next;
+		init->map_lines[init->yp + init->yp2][\
+		init->xp + init->xp2] = init->sprite_next;
 		mlx_destroy_image(init->mlx, init->hero);
 		init->hero = mlx_xpm_file_to_image(\
 		init->mlx, "./img/dog_you_win.xpm", &init->i, &init->j);
@@ -63,7 +64,8 @@ static int	check_exit(char c, t_mlx *init)
 static void	change_letter(t_mlx *init)
 {
 	init->map_lines[init->yp][init->xp] = init->sprite_curr;
-	init->map_lines[init->yp + init->yp2][init->xp + init->xp2] = init->sprite_next;
+	init->map_lines[init->yp + init->yp2][\
+	init->xp + init->xp2] = init->sprite_next;
 	init->yp2 = 0;
 	init->xp2 = 0;
 }
@@ -103,7 +105,7 @@ void	change_map(char c, t_mlx *init)
 		init->xp2 = -1;
 	else if (c == 'R')
 		init->xp2 = 1;
-		change_dog(c, init);
+	change_dog(c, init);
 	if (init->n_coins > 0)
 		check_not_yet(c, init);
 	else if (init->n_coins == 0)
