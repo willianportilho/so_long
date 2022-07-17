@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 04:09:25 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/17 05:33:07 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/17 08:23:07 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,37 @@ static int	check_exit(char c, t_mlx *init)
 	}
 }
 
-static void	change(char c, t_mlx *init)
+static void	change_letter(char c, t_mlx *init)
 {
 	init->map_lines[init->yp][init->xp] = '0';
 	init->map_lines[init->yp + init->yp2][init->xp + init->xp2] = c;
 	init->yp2 = 0;
 	init->xp2 = 0;
+}
+
+static void	change_dog(char c, t_mlx *init)
+{
+	mlx_destroy_image(init->mlx, init->hero);
+	if (c == 'U')
+	{
+		init->hero = mlx_xpm_file_to_image(\
+		init->mlx, "./img/dog_u.xpm", &init->i, &init->j);
+	}
+	else if (c == 'D')
+	{
+		init->hero = mlx_xpm_file_to_image(\
+		init->mlx, "./img/dog_d.xpm", &init->i, &init->j);
+	}
+	else if (c == 'L')
+	{
+		init->hero = mlx_xpm_file_to_image(\
+		init->mlx, "./img/dog_l.xpm", &init->i, &init->j);
+	}
+	else if (c == 'R')
+	{
+		init->hero = mlx_xpm_file_to_image(\
+		init->mlx, "./img/dog_r.xpm", &init->i, &init->j);
+	}
 }
 
 void	change_map(char c, t_mlx *init)
@@ -57,7 +82,8 @@ void	change_map(char c, t_mlx *init)
 		init->xp2 = 1;
 	if (init->n_coins == 0)
 		check_exit(c, init);
-	change('P', init);
+	change_dog(c, init);
+	change_letter('P', init);
 	init->moviments++;
 	ft_printf("Moviments: %d\n", init->moviments);
 }
