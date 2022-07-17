@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 05:29:49 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/17 04:39:09 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/17 21:03:55 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,10 @@ void	init_vars(t_mlx *init)
 	init->yp2 = 0;
 	init->xp2 = 0;
 	init->moviments = 0;
+	init->try_exit = 0;
+	init->sprite_curr = '0';
+	init->sprite_next = 'P';
+	init->key_game = 0;
 	start_mlx(init);
 	loading_xpms(init);
 }

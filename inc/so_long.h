@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 05:11:31 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/17 05:26:18 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/17 21:02:05 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,10 @@ typedef struct s_mlx
 	int		count2;
 	int		n_coins;
 	int		moviments;
+	int		try_exit;
+	int		key_game;
+	char	sprite_curr;
+	char	sprite_next;
 	char	*all_map;
 	char	**map_lines;
 }			t_mlx;
