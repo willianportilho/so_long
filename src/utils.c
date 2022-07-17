@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 19:25:54 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/17 04:28:24 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/17 04:33:09 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,22 @@ int	handle_input(int keysym, t_mlx *init)
 {
 	if (keysym == KEY_ESCAPE)
 		close_game(init);
-	else if ((keysym == KEY_ABNT_W) || (keysym == KEY_U))
+	else if (keysym == KEY_ABNT_W)
 	{
 		if (init->map_lines[init->yp - 1][init->xp] != '1')
 			change_map('U', init);
 	}
-	else if ((keysym == KEY_ABNT_S) || (keysym == KEY_D))
+	else if (keysym == KEY_ABNT_S)
 	{
 		if (init->map_lines[init->yp + 1][init->xp] != '1')
 			change_map('D', init);
 	}
-	else if ((keysym == KEY_ABNT_A) || (keysym == KEY_L))
+	else if (keysym == KEY_ABNT_A)
 	{
 		if (init->map_lines[init->yp][init->xp - 1] != '1')
 			change_map('L', init);
 	}
-	else if ((keysym == KEY_ABNT_D) || (keysym == KEY_R))
+	else if (keysym == KEY_ABNT_D)
 	{
 		if (init->map_lines[init->yp][init->xp + 1] != '1')
 			change_map('R', init);

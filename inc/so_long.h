@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 05:11:31 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/17 04:27:14 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/17 04:33:17 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,6 @@
 # define KEY_ABNT_A	(0x61)
 # define KEY_ABNT_S	(0x73)
 # define KEY_ABNT_D	(0x64)
-# define KEY_L (0xff51)
-# define KEY_U (0xff52)
-# define KEY_R (0xff53)
-# define KEY_D (0xff54)
 
 typedef struct s_mlx
 {
