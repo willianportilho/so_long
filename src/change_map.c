@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 04:09:25 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/16 22:55:45 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/17 05:33:07 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,25 @@
 static int	check_exit(char c, t_mlx *init)
 {
 	if ((init->map_lines[init->yp - 1][init->xp] == 'E') && (c == 'U'))
-		close_game(init);
+	{
+		ft_printf("Moviments: %d\n", ++init->moviments);
+		close_game("You Win!!!!!!", init);
+	}
 	if ((init->map_lines[init->yp + 1][init->xp] == 'E') && (c == 'D'))
-		close_game(init);
+	{
+		ft_printf("Moviments: %d\n", ++init->moviments);
+		close_game("You Win!!!!!!", init);
+	}
 	if ((init->map_lines[init->yp][init->xp - 1] == 'E') && (c == 'L'))
-		close_game(init);
+	{
+		ft_printf("Moviments: %d\n", ++init->moviments);
+		close_game("You Win!!!!!!", init);
+	}
 	if ((init->map_lines[init->yp][init->xp + 1] == 'E') && (c == 'R'))
-		close_game(init);
+	{
+		ft_printf("Moviments: %d\n", ++init->moviments);
+		close_game("You Win!!!!!!", init);
+	}
 }
 
 static void	change(char c, t_mlx *init)
@@ -46,5 +58,6 @@ void	change_map(char c, t_mlx *init)
 	if (init->n_coins == 0)
 		check_exit(c, init);
 	change('P', init);
-	ft_printf("C = %d", init->n_coins);
+	init->moviments++;
+	ft_printf("Moviments: %d\n", init->moviments);
 }

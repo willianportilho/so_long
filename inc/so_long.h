@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 05:11:31 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/17 04:33:17 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/17 05:26:18 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct s_mlx
 	int		count;
 	int		count2;
 	int		n_coins;
+	int		moviments;
 	char	*all_map;
 	char	**map_lines;
 }			t_mlx;
@@ -65,10 +66,10 @@ void	get_map(t_mlx *init, char *argv);
 void	map_error(char *message, t_mlx *init);
 void	init_vars(t_mlx *init);
 int		reprint(t_mlx *init);
-int		close_game(t_mlx *init);
+int		close_game(char *message, t_mlx *init);
 void	update_map(t_mlx *init);
 void	change_map(char c, t_mlx *init);
-//int		handle_keyrelease(int keysym, void *data);
+int		before_close(t_mlx *init);
 int		handle_input(int keysym, t_mlx *init);
 
 #endif

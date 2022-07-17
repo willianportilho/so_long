@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 19:25:54 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/17 04:33:09 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/17 05:26:45 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int	handle_input(int keysym, t_mlx *init)
 {
 	if (keysym == KEY_ESCAPE)
-		close_game(init);
+		close_game("You left the game!", init);
 	else if (keysym == KEY_ABNT_W)
 	{
 		if (init->map_lines[init->yp - 1][init->xp] != '1')
@@ -41,13 +41,13 @@ int	handle_input(int keysym, t_mlx *init)
 	return (0);
 }
 
-int	handle_keyrelease(int keysym, void *data)
+int	before_close(t_mlx *init)
 {
-	ft_printf("Keyrelease: %c\n", keysym);
-	return (0);
+	close_game("You left the game!", init);
+	return(1);
 }
 
-int	close_game(t_mlx *init)
+int	close_game(char *message, t_mlx *init)
 {
 	clear_xpms(init);
 	clear_map(init);
@@ -55,7 +55,7 @@ int	close_game(t_mlx *init)
 	mlx_destroy_display(init->mlx);
 	free (init->all_map);
 	free (init->mlx);
-	ft_printf("You left the game!\n", init);
+	ft_printf("%s\n", message);
 	exit(EXIT_SUCCESS);
 }
 
