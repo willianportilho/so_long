@@ -6,23 +6,23 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 04:09:25 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/16 05:46:04 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/16 22:55:45 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 #include "../inc/libft.h"
 
-static int	check_exit(char *sprite_letter, char c, t_mlx *init)
+static int	check_exit(char c, t_mlx *init)
 {
-	if ((init->map_lines[init->yp - 1][init->xp] == 'E') && (c = 'U'))
-		*sprite_letter = 'A';
-	if ((init->map_lines[init->yp + 1][init->xp] == 'E') && (c = 'D'))
-		change_map('D', init);
-	if ((init->map_lines[init->yp][init->xp - 1] == 'E') && (c = 'L'))
-		change_map('L', init);
-	if ((init->map_lines[init->yp][init->xp + 1] == 'E') && (c = 'R'))
-		change_map('R', init);
+	if ((init->map_lines[init->yp - 1][init->xp] == 'E') && (c == 'U'))
+		close_game(init);
+	if ((init->map_lines[init->yp + 1][init->xp] == 'E') && (c == 'D'))
+		close_game(init);
+	if ((init->map_lines[init->yp][init->xp - 1] == 'E') && (c == 'L'))
+		close_game(init);
+	if ((init->map_lines[init->yp][init->xp + 1] == 'E') && (c == 'R'))
+		close_game(init);
 }
 
 static void	change(char c, t_mlx *init)
@@ -35,17 +35,16 @@ static void	change(char c, t_mlx *init)
 
 void	change_map(char c, t_mlx *init)
 {
-	char	sprite_letter;
-
-	sprite_letter = 'P';
-	//check_exit(&sprite_letter, c, init);
 	if (c == 'U')
 		init->yp2 = -1;
-	if (c == 'D')
+	else if (c == 'D')
 		init->yp2 = 1;
-	if (c == 'L')
+	else if (c == 'L')
 		init->xp2 = -1;
-	if (c == 'R')
+	else if (c == 'R')
 		init->xp2 = 1;
-	change(sprite_letter, init);
+	if (init->n_coins == 0)
+		check_exit(c, init);
+	change('P', init);
+	ft_printf("C = %d", init->n_coins);
 }

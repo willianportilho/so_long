@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 05:29:49 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/16 05:43:01 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/17 03:32:32 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,15 @@ static void	start_mlx(t_mlx *init)
 static void	loading_xpms(t_mlx *init)
 {
 	init->wall = mlx_xpm_file_to_image(\
-	init->mlx, "./img/wall.xpm", &init->i, &init->j);
+	init->mlx, "./img/flower.xpm", &init->i, &init->j);
 	init->coin = mlx_xpm_file_to_image(\
-	init->mlx, "./img/coin.xpm", &init->i, &init->j);
+	init->mlx, "./img/bone.xpm", &init->i, &init->j);
 	init->hole = mlx_xpm_file_to_image(\
-	init->mlx, "./img/hole.xpm", &init->i, &init->j);
+	init->mlx, "./img/home.xpm", &init->i, &init->j);
 	init->hero = mlx_xpm_file_to_image(\
-	init->mlx, "./img/hero_ground.xpm", &init->i, &init->j);
+	init->mlx, "./img/dog_r.xpm", &init->i, &init->j);
 	init->ground = mlx_xpm_file_to_image(\
-	init->mlx, "./img/ground.xpm", &init->i, &init->j);
+	init->mlx, "./img/gram.xpm", &init->i, &init->j);
 }
 
 void	init_vars(t_mlx *init)
@@ -47,7 +47,6 @@ void	init_vars(t_mlx *init)
 	init->count2 = 0;
 	init->yp2 = 0;
 	init->xp2 = 0;
-	init->n_coins = 0;
 	start_mlx(init);
 	loading_xpms(init);
 }
