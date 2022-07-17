@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 05:11:31 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/17 22:52:15 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/17 23:15:52 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ typedef struct s_mlx
 {
 	void	*mlx;
 	void	*win;
-	void	*wall;
-	void	*hole;
-	void	*coin;
-	void	*ground;
-	void	*hero;
+	void	*flower;
+	void	*home;
+	void	*bone;
+	void	*gram;
+	void	*dog;
 	void	*sprite;
 	int		i;
 	int		j;
@@ -43,7 +43,7 @@ typedef struct s_mlx
 	int		yp2;
 	int		count;
 	int		count2;
-	int		n_coins;
+	int		n_bones;
 	int		moviments;
 	int		try_exit;
 	int		key_game;
@@ -54,7 +54,7 @@ typedef struct s_mlx
 }			t_mlx;
 
 void	start_map(t_mlx *init);
-void	input_error(char *message);
+void	put_error(char *message);
 void	check_input(int argc, char *argv);
 void	check_map(t_mlx *init);
 void	clear_map(t_mlx *init);

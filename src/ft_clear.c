@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 18:08:29 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/15 20:00:58 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/17 23:15:26 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ void	clear_map(t_mlx *init)
 
 void	clear_xpms(t_mlx *init)
 {
-	mlx_destroy_image(init->mlx, init->wall);
-	mlx_destroy_image(init->mlx, init->coin);
-	mlx_destroy_image(init->mlx, init->ground);
-	mlx_destroy_image(init->mlx, init->hole);
-	mlx_destroy_image(init->mlx, init->hero);
+	mlx_destroy_image(init->mlx, init->flower);
+	mlx_destroy_image(init->mlx, init->bone);
+	mlx_destroy_image(init->mlx, init->gram);
+	mlx_destroy_image(init->mlx, init->home);
+	mlx_destroy_image(init->mlx, init->dog);
 }

@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 05:14:36 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/16 05:10:00 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/17 23:12:52 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,15 @@ void	start_map(t_mlx *init)
 		while (init->map_lines[init->count][init->count2])
 		{
 			if (init->map_lines[init->count][init->count2] == '1')
-				init->sprite = init->wall;
+				init->sprite = init->flower;
 			else if (init->map_lines[init->count][init->count2] == '0')
-				init->sprite = init->ground;
+				init->sprite = init->gram;
 			else if (init->map_lines[init->count][init->count2] == 'P')
-				init->sprite = init->hero;
+				init->sprite = init->dog;
 			else if (init->map_lines[init->count][init->count2] == 'C')
-				init->sprite = init->coin;
+				init->sprite = init->bone;
 			else if (init->map_lines[init->count][init->count2] == 'E')
-				init->sprite = init->hole;
+				init->sprite = init->home;
 			put_sprite(init);
 			init->count2++;
 		}

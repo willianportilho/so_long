@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 00:44:00 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/17 22:51:51 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/17 23:02:16 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ void	check_map(t_mlx *init)
 	if (init->all_map)
 		init->map_lines = ft_split(init->all_map, '\n');
 	else
-		input_error("Empty file.");
+		put_error("Empty file.");
 	if (init->all_map[0] == '\n')
 		map_error("Empty line in the first (or more) line(s).\n", init);
 	while (init->all_map[i])

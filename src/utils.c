@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 19:25:54 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/17 22:07:37 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/17 23:16:24 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	update_map(t_mlx *init)
 	i2 = 0;
 	init->xp = 0;
 	init->yp = 0;
-	init->n_coins = 0;
+	init->n_bones = 0;
 	while (init->map_lines[i])
 	{
 		while (init->map_lines[i][i2])
@@ -85,7 +85,7 @@ void	update_map(t_mlx *init)
 				init->yp = i;
 			}
 			if (init->map_lines[i][i2] == 'C')
-				init->n_coins++;
+				init->n_bones++;
 			i2++;
 		}
 		i++;
