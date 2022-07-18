@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 19:25:54 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/18 03:55:20 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/18 04:45:06 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ void	put_counter(t_mlx *init)
 	str = ft_itoa(init->moviments);
 	mlx_put_image_to_window(init->mlx, init->win, \
 	init->board, 0, 0);
-	mlx_string_put(init->mlx, init->win, 14, 29, 0xffffff, str);
+	mlx_string_put(init->mlx, init->win, 9, 19, 0xffffff, "MOVES:");
+	mlx_string_put(init->mlx, init->win, 16, 37, 0xffffff, str);
 	free (str);
 }
 

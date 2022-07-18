@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 05:29:49 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/18 03:17:24 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/18 04:46:35 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	loading_xpms(t_mlx *init)
 	init->home = mlx_xpm_file_to_image(\
 	init->mlx, "./img/home.xpm", &init->i, &init->j);
 	init->dog = mlx_xpm_file_to_image(\
-	init->mlx, "./img/dog_r.xpm", &init->i, &init->j);
+	init->mlx, "./img/dog_d.xpm", &init->i, &init->j);
 	init->gram = mlx_xpm_file_to_image(\
 	init->mlx, "./img/gram.xpm", &init->i, &init->j);
 	init->board = mlx_xpm_file_to_image(\
