@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   change_map.c                                       :+:      :+:    :+:   */
+/*   change_map_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 04:09:25 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/18 02:58:14 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/18 03:51:10 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/so_long.h"
+#include "../inc/so_long_bonus.h"
 #include "../inc/libft.h"
 
 static void	check_not_yet(char c, t_mlx *init)
@@ -119,5 +119,4 @@ void	change_map(char c, t_mlx *init)
 		init->sprite_curr = '0';
 	init->moviments++;
 	start_map(init);
-	ft_printf("Moviments: %d\n", init->moviments);
 }

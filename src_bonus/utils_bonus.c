@@ -1,17 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   utils_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 19:25:54 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/18 03:03:04 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/18 03:55:20 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/so_long.h"
+#include "../inc/so_long_bonus.h"
 #include "../inc/libft.h"
+
+void	put_counter(t_mlx *init)
+{
+	char	*str;
+
+	str = ft_itoa(init->moviments);
+	mlx_put_image_to_window(init->mlx, init->win, \
+	init->board, 0, 0);
+	mlx_string_put(init->mlx, init->win, 14, 29, 0xffffff, str);
+	free (str);
+}
 
 int	handle_input(int keysym, t_mlx *init)
 {
