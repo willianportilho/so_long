@@ -6,11 +6,11 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 05:26:04 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/18 21:43:40 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/18 22:18:52 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/so_long.h"
+#include "../inc/so_long_bonus.h"
 #include "../inc/libft.h"
 
 void	map_error(char *message, t_game *game)

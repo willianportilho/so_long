@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 05:11:31 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/18 03:54:44 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/18 22:20:08 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@ typedef struct s_mlx
 {
 	void	*mlx;
 	void	*win;
+}			t_mlx;
+
+typedef struct s_sprite
+{
 	void	*flower;
 	void	*home;
 	void	*bone;
@@ -34,6 +38,18 @@ typedef struct s_mlx
 	void	*dog;
 	void	*sprite;
 	void	*board;
+}			t_sprite;
+
+typedef struct s_text
+{
+	char	sprite_curr;
+	char	sprite_next;
+	char	*all_map;
+	char	**map_lines;
+}			t_text;
+
+typedef struct s_number
+{
 	int		i;
 	int		j;
 	int		cols;
@@ -48,27 +64,31 @@ typedef struct s_mlx
 	int		moviments;
 	int		try_exit;
 	int		key_game;
-	char	sprite_curr;
-	char	sprite_next;
-	char	*all_map;
-	char	**map_lines;
-}			t_mlx;
+}			t_number;
 
-void	start_map(t_mlx *init);
+typedef struct s_game
+{
+	t_mlx		init;
+	t_sprite	spt;
+	t_text		txt;
+	t_number	num;
+}				t_game;
+
+void	start_map(t_game *game);
 void	put_error(char *message);
 void	check_input(int argc, char *argv);
-void	check_map(t_mlx *init);
-void	clear_map(t_mlx *init);
-void	clear_xpms(t_mlx *init);
-void	get_map(t_mlx *init, char *argv);
-void	map_error(char *message, t_mlx *init);
-void	init_vars(t_mlx *init);
-int		reprint(t_mlx *init);
-int		close_game(char *message, t_mlx *init);
-void	update_map(t_mlx *init);
-void	change_map(char c, t_mlx *init);
-int		before_close(t_mlx *init);
-int		handle_input(int keysym, t_mlx *init);
-void	put_counter(t_mlx *init);
+void	check_map(t_game *game);
+void	clear_map(t_game *game);
+void	clear_xpms(t_game *game);
+void	get_map(t_game *game, char *argv);
+void	map_error(char *message, t_game *game);
+void	init_vars(t_game *game);
+int	reprint(t_game *game);
+int	close_game(char *message, t_game *game);
+void	update_map(t_game *game);
+void	change_map(char c, t_game *game);
+int	before_close(t_game *game);
+int	handle_input(int keysym, t_game *game);
+void	put_counter(t_game *game);
 
 #endif

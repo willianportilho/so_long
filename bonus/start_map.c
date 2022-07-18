@@ -6,11 +6,11 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 05:14:36 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/18 21:50:44 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/18 22:19:06 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/so_long.h"
+#include "../inc/so_long_bonus.h"
 #include "../inc/libft.h"
 
 static void	put_sprite(t_game *game)
@@ -42,5 +42,6 @@ void	start_map(t_game *game)
 		game->num.count2 = 0;
 	}
 	game->num.count = 0;
+	put_counter(game);
 	update_map(game);
 }

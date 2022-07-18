@@ -6,11 +6,11 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 17:31:27 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/18 21:39:54 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/18 22:19:03 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/so_long.h"
+#include "../inc/so_long_bonus.h"
 #include "../inc/libft.h"
 
 

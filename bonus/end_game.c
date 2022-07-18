@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors.c                                           :+:      :+:    :+:   */
+/*   end_game.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/12 05:26:04 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/18 21:43:40 by wportilh         ###   ########.fr       */
+/*   Created: 2022/07/18 03:02:21 by wportilh          #+#    #+#             */
+/*   Updated: 2022/07/18 22:18:51 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/so_long.h"
+#include "../inc/so_long_bonus.h"
 #include "../inc/libft.h"
 
-void	map_error(char *message, t_game *game)
+int	before_close(t_game *game)
 {
-	ft_printf("Error\n%s", message);
-	clear_map(game);
-	free (game->txt.all_map);
-	exit(EXIT_FAILURE);
+	close_game("You left the game!", game);
+	return (1);
 }
 
-void	put_error(char *message)
+int	close_game(char *message, t_game *game)
 {
-	ft_printf("Error\n%s\n", message);
-	exit(EXIT_FAILURE);
+	clear_xpms(game);
+	clear_map(game);
+	mlx_destroy_window(game->init.mlx, game->init.win);
+	mlx_destroy_display(game->init.mlx);
+	free (game->txt.all_map);
+	free (game->init.mlx);
+	ft_printf("%s\n", message);
+	exit(EXIT_SUCCESS);
 }

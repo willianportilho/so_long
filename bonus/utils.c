@@ -6,12 +6,24 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 19:25:54 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/18 21:42:03 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/18 22:19:09 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/so_long.h"
+#include "../inc/so_long_bonus.h"
 #include "../inc/libft.h"
+
+void	put_counter(t_game *game)
+{
+	char	*str;
+
+	str = ft_itoa(game->num.moviments);
+	mlx_put_image_to_window(game->init.mlx, game->init.win, \
+	game->spt.board, 0, 0);
+	mlx_string_put(game->init.mlx, game->init.win, 9, 19, 0xffffff, "MOVES:");
+	mlx_string_put(game->init.mlx, game->init.win, 16, 37, 0xffffff, str);
+	free (str);
+}
 
 int	handle_input(int keysym, t_game *game)
 {
