@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   utils_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 19:25:54 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/19 06:24:15 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/19 08:23:13 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	handle_input(int ksym, t_game *game)
 {
 	if (ksym == KEY_ESC)
 		close_game("You left the game!", game);
-	else if (((ksym == KEY_W) || (ksym == UP)) && (game->num.key_game == 0))
+	if (((ksym == KEY_W) || (ksym == UP)) && (game->num.key_game == 0))
 	{
 		if (game->txt.map_lines[game->num.yp - 1][game->num.xp] != '1')
 			change_map('U', -1, 0, game);

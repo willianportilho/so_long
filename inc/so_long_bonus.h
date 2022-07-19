@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 05:11:31 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/19 06:46:17 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/19 08:25:45 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,5 +102,6 @@ int		handle_input(int keysym, t_game *game);
 void	put_counter(t_game *game);
 void	change_dog(char c, t_game *game);
 void	you_win_or_lose(int	i, t_game *game);
+int		animation(t_game *game);
 
 #endif

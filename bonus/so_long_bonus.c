@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   so_long_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 17:31:27 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/18 22:19:03 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/19 08:22:38 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ int	main(int argc, char *argv[])
 	mlx_hook(game.init.win, Expose, ExposureMask, &reprint, &game);
 	mlx_hook(game.init.win, KeyPress, KeyPressMask, &handle_input, &game);
 	mlx_hook(game.init.win, DestroyNotify, NoEventMask, &before_close, &game);
+	mlx_loop_hook(game.init.mlx, &animation, &game);
 	mlx_loop(game.init.mlx);
 }
