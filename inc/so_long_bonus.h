@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 05:11:31 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/19 04:56:25 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/19 05:22:53 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,15 @@
 # include <math.h>
 # include <X11/X.h>
 
-# define KEY_ESCAPE	(0xff1b)
-# define KEY_ABNT_W	(0x77)
-# define KEY_ABNT_A	(0x61)
-# define KEY_ABNT_S	(0x73)
-# define KEY_ABNT_D	(0x64)
+# define KEY_ESC	(0xff1b)
+# define KEY_W		(0x77)
+# define KEY_A		(0x61)
+# define KEY_S		(0x73)
+# define KEY_D		(0x64)
+# define UP			(0xff52)
+# define DOWN		(0xff54)
+# define LEFT		(0xff51)
+# define RIGHT		(0xff53)
 
 typedef struct s_mlx
 {

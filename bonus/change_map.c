@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 04:09:25 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/18 22:18:44 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/19 05:07:10 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,10 +113,9 @@ void	change_map(char c, t_game *game)
 	else if (c == 'R')
 		game->num.xp2 = 1;
 	change_dog(c, game);
-	if (game->num.n_bones > 0)
-		check_not_yet(c, game);
-	else if (game->num.n_bones == 0)
+	if (game->num.n_bones == 0)
 		check_exit(c, game);
+	check_not_yet(c, game);
 	change_letter(game);
 	if (game->num.try_exit == 1)
 	{
