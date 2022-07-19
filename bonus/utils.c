@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 19:25:54 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/19 05:23:16 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/19 06:24:15 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,22 +32,22 @@ int	handle_input(int ksym, t_game *game)
 	else if (((ksym == KEY_W) || (ksym == UP)) && (game->num.key_game == 0))
 	{
 		if (game->txt.map_lines[game->num.yp - 1][game->num.xp] != '1')
-			change_map('U', game);
+			change_map('U', -1, 0, game);
 	}
 	else if (((ksym == KEY_S) || (ksym == DOWN)) && (game->num.key_game == 0))
 	{
 		if (game->txt.map_lines[game->num.yp + 1][game->num.xp] != '1')
-			change_map('D', game);
+			change_map('D', 1, 0, game);
 	}
 	else if (((ksym == KEY_A) || (ksym == LEFT)) && (game->num.key_game == 0))
 	{
 		if (game->txt.map_lines[game->num.yp][game->num.xp - 1] != '1')
-			change_map('L', game);
+			change_map('L', 0, -1, game);
 	}
 	else if (((ksym == KEY_D) || (ksym == RIGHT)) && (game->num.key_game == 0))
 	{
 		if (game->txt.map_lines[game->num.yp][game->num.xp + 1] != '1')
-			change_map('R', game);
+			change_map('R', 0, 1, game);
 	}
 	return (0);
 }
@@ -83,5 +83,30 @@ void	update_map(t_game *game)
 		}
 		i++;
 		i2 = 0;
+	}
+}
+
+void	change_dog(char c, t_game *game)
+{
+	mlx_destroy_image(game->init.mlx, game->spt.dog);
+	if (c == 'U')
+	{
+		game->spt.dog = mlx_xpm_file_to_image(\
+		game->init.mlx, "./img/dog_u.xpm", &game->num.i, &game->num.j);
+	}
+	else if (c == 'D')
+	{
+		game->spt.dog = mlx_xpm_file_to_image(\
+		game->init.mlx, "./img/dog_d.xpm", &game->num.i, &game->num.j);
+	}
+	else if (c == 'L')
+	{
+		game->spt.dog = mlx_xpm_file_to_image(\
+		game->init.mlx, "./img/dog_l.xpm", &game->num.i, &game->num.j);
+	}
+	else if (c == 'R')
+	{
+		game->spt.dog = mlx_xpm_file_to_image(\
+		game->init.mlx, "./img/dog_r.xpm", &game->num.i, &game->num.j);
 	}
 }

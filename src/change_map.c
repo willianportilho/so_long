@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 04:09:25 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/18 21:51:16 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/19 06:50:23 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static void	check_exit(char c, t_game *game)
 		game->num.xp + game->num.xp2] = game->txt.sprite_next;
 		mlx_destroy_image(game->init.mlx, game->spt.dog);
 		game->spt.dog = mlx_xpm_file_to_image(\
-		game->init.mlx, "./img/dog_you_win.xpm", &game->num.i, &game->num.j);
+		game->init.mlx, "./img/you_win.xpm", &game->num.i, &game->num.j);
 	}
 }
 
@@ -127,5 +127,5 @@ void	change_map(char c, t_game *game)
 		game->txt.sprite_curr = '0';
 	game->num.moviments++;
 	start_map(game);
-	ft_printf("Moviments: %d\n", game->num.moviments);
+	ft_printf("Moves: %d\n", game->num.moviments);
 }
