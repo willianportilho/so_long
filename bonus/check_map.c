@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 00:44:00 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/18 22:18:48 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/19 04:40:51 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,30 +39,30 @@ static void	check_wrong_c(t_game *game, char *allow_char)
 
 static void	check_cep(t_game *game, char *cep_chars)
 {
-	int	i;
-	int	c;
-	int	e;
-	int	p;
-
-	i = 0;
-	c = 0;
-	e = 0;
-	p = 0;
-	while (game->txt.all_map[i])
+	game->num.index = 0;
+	game->num.c = 0;
+	game->num.e = 0;
+	game->num.p = 0;
+	game->num.m = 0;
+	while (game->txt.all_map[game->num.index])
 	{
-		if (game->txt.all_map[i] == cep_chars[0])
-			c++;
-		if (game->txt.all_map[i] == cep_chars[1])
-			e++;
-		if (game->txt.all_map[i] == cep_chars[2])
-			p++;
-		i++;
+		if (game->txt.all_map[game->num.index] == cep_chars[0])
+			game->num.c++;
+		if (game->txt.all_map[game->num.index] == cep_chars[1])
+			game->num.e++;
+		if (game->txt.all_map[game->num.index] == cep_chars[2])
+			game->num.m++;
+		if (game->txt.all_map[game->num.index] == cep_chars[3])
+			game->num.p++;
+		game->num.index++;
 	}
-	if (c == 0)
+	if (game->num.c == 0)
 		map_error("Letter 'C' not found. Insert at least one.\n", game);
-	else if (e == 0)
+	else if (game->num.e == 0)
 		map_error("Letter 'E' not found. Insert at least one.\n", game);
-	else if (p != 1)
+	else if (game->num.m == 0)
+		map_error("Letter 'M' not found. Insert at least one.\n", game);
+	else if (game->num.p != 1)
 		map_error("Insert one (only) letter 'P' on the map.\n", game);
 }
 

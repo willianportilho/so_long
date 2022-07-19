@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 05:29:49 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/18 22:19:01 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/19 04:42:48 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ static void	loading_xpms(t_game *game)
 	game->init.mlx, "./img/gram.xpm", &game->num.i, &game->num.j);
 	game->spt.board = mlx_xpm_file_to_image(\
 	game->init.mlx, "./img/board.xpm", &game->num.i, &game->num.j);
+	game->spt.gram = mlx_xpm_file_to_image(\
+	game->init.mlx, "./img/mad_dog_r.xpm", &game->num.i, &game->num.j);
 }
 
 void	init_vars(t_game *game)

@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 05:11:31 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/18 21:45:09 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/19 04:43:23 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,10 @@ typedef struct s_number
 	int		moviments;
 	int		try_exit;
 	int		key_game;
+	int		index;
+	int		c;
+	int		e;
+	int		p;
 }			t_number;
 
 typedef struct s_game
