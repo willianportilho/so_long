@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 00:44:00 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/19 04:40:51 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/19 04:47:27 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ static void	check_cep(t_game *game, char *cep_chars)
 		if (game->txt.all_map[game->num.index] == cep_chars[1])
 			game->num.e++;
 		if (game->txt.all_map[game->num.index] == cep_chars[2])
-			game->num.m++;
-		if (game->txt.all_map[game->num.index] == cep_chars[3])
 			game->num.p++;
+		if (game->txt.all_map[game->num.index] == cep_chars[3])
+			game->num.m++;
 		game->num.index++;
 	}
 	if (game->num.c == 0)

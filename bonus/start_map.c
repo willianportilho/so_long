@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 05:14:36 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/18 22:19:06 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/19 04:50:50 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void	start_map(t_game *game)
 				game->spt.sprite = game->spt.bone;
 			if (game->txt.map_lines[game->num.count][game->num.count2] == 'E')
 				game->spt.sprite = game->spt.home;
+			if (game->txt.map_lines[game->num.count][game->num.count2] == 'M')
+				game->spt.sprite = game->spt.mad_dog;
 			put_sprite(game);
 			game->num.count2++;
 		}

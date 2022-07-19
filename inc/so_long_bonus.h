@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 05:11:31 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/19 04:33:12 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/19 04:56:25 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct s_sprite
 	void	*dog;
 	void	*sprite;
 	void	*board;
+	void	*mad_dog;
 }			t_sprite;
 
 typedef struct s_text
@@ -88,12 +89,12 @@ void	clear_xpms(t_game *game);
 void	get_map(t_game *game, char *argv);
 void	map_error(char *message, t_game *game);
 void	init_vars(t_game *game);
-int	reprint(t_game *game);
-int	close_game(char *message, t_game *game);
+int		reprint(t_game *game);
+int		close_game(char *message, t_game *game);
 void	update_map(t_game *game);
 void	change_map(char c, t_game *game);
-int	before_close(t_game *game);
-int	handle_input(int keysym, t_game *game);
+int		before_close(t_game *game);
+int		handle_input(int keysym, t_game *game);
 void	put_counter(t_game *game);
 
 #endif

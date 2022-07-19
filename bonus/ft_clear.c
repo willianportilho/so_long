@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 18:08:29 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/18 22:18:32 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/19 04:51:43 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,5 @@ void	clear_xpms(t_game *game)
 	mlx_destroy_image(game->init.mlx, game->spt.home);
 	mlx_destroy_image(game->init.mlx, game->spt.dog);
 	mlx_destroy_image(game->init.mlx, game->spt.board);
+	mlx_destroy_image(game->init.mlx, game->spt.mad_dog);
 }
