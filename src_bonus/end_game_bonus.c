@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   end_game.c                                         :+:      :+:    :+:   */
+/*   end_game_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 03:02:21 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/19 06:47:25 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/19 22:42:59 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long_bonus.h"
-#include "../inc/libft.h"
 
 int	before_close(t_game *game)
 {
 	close_game("You left the game!", game);
-	return (1);
+	exit(EXIT_FAILURE);
 }
 
 int	close_game(char *message, t_game *game)

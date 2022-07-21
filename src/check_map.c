@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
-#include "../inc/libft.h"
 
 static void	check_wrong_c(t_game *game, char *allow_char)
 {

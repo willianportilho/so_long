@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
-#include "../inc/libft.h"
 
 static void	start_mlx(t_game *game)
 {

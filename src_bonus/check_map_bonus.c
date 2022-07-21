@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map.c                                        :+:      :+:    :+:   */
+/*   check_map_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 00:44:00 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/19 04:47:27 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/20 03:05:18 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long_bonus.h"
-#include "../inc/libft.h"
 
 static void	check_wrong_c(t_game *game, char *allow_char)
 {
@@ -73,7 +72,7 @@ static void	check_format_row(t_game *game)
 
 	i = 0;
 	i2 = ft_strlen(game->txt.map_lines[i]);
-	game->num.rows = i2;
+	game->num.cols = i2;
 	while (game->txt.map_lines[i])
 	{
 		if ((int)ft_strlen(game->txt.map_lines[i]) != i2)
@@ -94,7 +93,7 @@ static void	check_format_col(t_game *game)
 	i2 = 0;
 	while (game->txt.map_lines[i])
 		i++;
-	game->num.cols = i;
+	game->num.rows = i;
 	while (game->txt.map_lines[0][i2])
 	{
 		if ((game->txt.map_lines[0][i2] != '1')

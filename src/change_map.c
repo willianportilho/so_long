@@ -6,12 +6,11 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 04:09:25 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/19 06:50:23 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/21 03:38:04 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
-#include "../inc/libft.h"
 
 static void	check_not_yet(char c, t_game *game)
 {

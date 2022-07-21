@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_vars.c                                        :+:      :+:    :+:   */
+/*   init_vars_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 05:29:49 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/19 04:48:07 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/21 04:26:15 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long_bonus.h"
-#include "../inc/libft.h"
 
 static void	start_mlx(t_game *game)
 {
 	game->init.mlx = mlx_init();
 	if (game->init.mlx == NULL)
 		put_error("mlx_init error.");
-	game->init.win = mlx_new_window(game->init.mlx, game->num.rows * 50, \
-	game->num.cols * 50, "so_long");
+	game->init.win = mlx_new_window(game->init.mlx, game->num.cols * 50, \
+	game->num.rows * 50, "so_long");
 	if (game->init.win == NULL)
 	{
 		free (game->init.win);
@@ -42,7 +41,7 @@ static void	loading_xpms(t_game *game)
 	game->spt.board = mlx_xpm_file_to_image(\
 	game->init.mlx, "./img/board.xpm", &game->num.i, &game->num.j);
 	game->spt.mad_dog = mlx_xpm_file_to_image(\
-	game->init.mlx, "./img/mad_dog_r.xpm", &game->num.i, &game->num.j);
+	game->init.mlx, "./img/mad_dog.xpm", &game->num.i, &game->num.j);
 }
 
 void	init_vars(t_game *game)

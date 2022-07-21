@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
-#include "../inc/libft.h"
 
 static void	put_sprite(t_game *game)
 {

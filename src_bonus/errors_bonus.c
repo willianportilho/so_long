@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../inc/so_long_bonus.h"
-#include "../inc/libft.h"
 
 void	map_error(char *message, t_game *game)
 {

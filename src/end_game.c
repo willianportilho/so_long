@@ -6,17 +6,16 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 03:02:21 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/18 21:45:30 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/19 22:42:47 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
-#include "../inc/libft.h"
 
 int	before_close(t_game *game)
 {
 	close_game("You left the game!", game);
-	return (1);
+	exit(EXIT_FAILURE);
 }
 
 int	close_game(char *message, t_game *game)

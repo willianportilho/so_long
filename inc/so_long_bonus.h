@@ -6,15 +6,16 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 05:11:31 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/19 08:25:45 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/20 03:17:34 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_BONUS_H
 # define SO_LONG_BONUS_H
 
+# include "./libft.h"
 # include <mlx.h>
-# include <math.h>
+# include <fcntl.h>
 # include <X11/X.h>
 
 # define KEY_ESC	(0xff1b)
@@ -74,6 +75,7 @@ typedef struct s_number
 	int		e;
 	int		p;
 	int		m;
+	int		key;
 }			t_number;
 
 typedef struct s_game
@@ -101,7 +103,9 @@ int		before_close(t_game *game);
 int		handle_input(int keysym, t_game *game);
 void	put_counter(t_game *game);
 void	change_dog(char c, t_game *game);
-void	you_win_or_lose(int	i, t_game *game);
+void	you_win_or_lose(int i, t_game *game);
 int		animation(t_game *game);
+void	delay(int i);
+void	change_mad_dog(t_game *game);
 
 #endif

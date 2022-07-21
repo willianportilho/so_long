@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
-#include "../inc/libft.h"
 
 int	handle_input(int ksym, t_game *game)
 {

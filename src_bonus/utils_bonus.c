@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../inc/so_long_bonus.h"
-#include "../inc/libft.h"
 
 void	put_counter(t_game *game)
 {

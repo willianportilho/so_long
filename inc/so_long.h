@@ -13,8 +13,9 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+# include "./libft.h"
 # include <mlx.h>
-# include <math.h>
+# include <fcntl.h>
 # include <X11/X.h>
 
 # define KEY_ESC	(0xff1b)

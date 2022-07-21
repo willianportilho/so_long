@@ -6,15 +6,12 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 17:31:27 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/19 08:22:38 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/21 04:43:44 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long_bonus.h"
-#include "../inc/libft.h"
 
-
-// MUDAR CONFGS DE USUÁRIO GIT ANTES DE ENTREGAR
 int	main(int argc, char *argv[])
 {
 	t_game	game;

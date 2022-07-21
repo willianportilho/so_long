@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../inc/so_long_bonus.h"
-#include "../inc/libft.h"
 
 void	clear_map(t_game *game)
 {

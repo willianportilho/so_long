@@ -6,14 +6,13 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 07:19:47 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/19 08:36:27 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/21 04:21:46 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long_bonus.h"
-#include "../inc/libft.h"
 
-static void	delay(int i)
+void	delay(int i)
 {
 	int	i2;
 	int	i3;
@@ -30,7 +29,7 @@ static void	delay(int i)
 
 static void	define_animation(char *str, t_game *game)
 {
-	delay (7000000);
+	delay (10000000);
 	mlx_destroy_image(game->init.mlx, game->spt.bone);
 	game->spt.bone = mlx_xpm_file_to_image(\
 	game->init.mlx, str, &game->num.i, &game->num.j);
