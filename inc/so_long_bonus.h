@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 05:11:31 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/20 03:17:34 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/21 04:50:08 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,5 @@ void	put_counter(t_game *game);
 void	change_dog(char c, t_game *game);
 void	you_win_or_lose(int i, t_game *game);
 int		animation(t_game *game);
-void	delay(int i);
-void	change_mad_dog(t_game *game);
 
 #endif

@@ -6,13 +6,13 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 07:19:47 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/21 04:21:46 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/07/21 04:47:48 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long_bonus.h"
 
-void	delay(int i)
+static void	delay(int i)
 {
 	int	i2;
 	int	i3;
